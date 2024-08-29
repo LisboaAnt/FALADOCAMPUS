@@ -1,5 +1,7 @@
 'use client'
 
+//Faz a mudanca entre os temas
+
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 
 export function ThemeProvider({ children, ...props }) {

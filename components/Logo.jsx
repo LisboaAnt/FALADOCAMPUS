@@ -1,5 +1,7 @@
 'use client'
 
+//Logo do site
+
 import Image from 'next/image'
 import Link from 'next/link'
 

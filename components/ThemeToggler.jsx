@@ -1,5 +1,7 @@
 'use client';
 
+//Tema claro ou escuro
+
 import { Button } from "./ui/button";
 import { SunIcon, MoonIcon } from '@radix-ui/react-icons'
 import { useTheme } from "next-themes";

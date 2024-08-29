@@ -4,6 +4,8 @@ import Logo from './Logo'
 import Socials from './Socials';
 import { AlignJustify } from 'lucide-react';
 
+//Nav Mobile
+
 const MobileNav = () => {
   return (
     <Sheet>

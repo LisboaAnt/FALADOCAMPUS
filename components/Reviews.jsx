@@ -54,7 +54,7 @@ const reviewsData = [
 const  Reviews = () => {
     return (
         <section className="mb-12 xl:mb-32">
-            <div className="container mx-auto">
+            <div className="container mx-auto ">
                 <h2 className="section-title mb-12 text-center mx-auto">
                     The say about our work
                 </h2>
@@ -71,11 +71,11 @@ const  Reviews = () => {
                     pagination={{
                         clickable: true,
                     }}
-                    className="h-[350px]"
+                    className="h-[350px] "
                     >
                     {reviewsData.map((person, index) => (
                         <SwiperSlide key={index}>
-                        <Card className="p-8 min-h-[300px]">
+                        <Card className="p-8 min-h-[300px] hover:bg-tertiary  hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-700">
                             <CardHeader className="p-0 mb-3">
                             <div className="flex flex-col items-start gap-x-4">
                                 {/* Avatar */}

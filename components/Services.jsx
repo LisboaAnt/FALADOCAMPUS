@@ -31,7 +31,7 @@ const Services = () => {
                         servicesData.map((item, index) => {
                             return(
                                 <Card 
-                                className="relative w-full max-w-[425px] h-[450px] flex flex-col pb-10 justify-center items-center cursor-pointer hover:bg-tertiary dark:hover:bg-white/10 transition-all duration-700"
+                                className="relative w-full max-w-[425px] h-[450px] flex flex-col pb-10 justify-center items-center cursor-pointer  hover:bg-tertiary hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-700"
                                 key={index}>
                                     <CardHeader
                                     className="text-primary"

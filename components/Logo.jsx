@@ -12,7 +12,7 @@ const Logo = () => {
         src="/logo.svg"
         width={55}
         height={55}
-        prioeity alt=""
+        priority alt=""
         />
     </Link>
   )

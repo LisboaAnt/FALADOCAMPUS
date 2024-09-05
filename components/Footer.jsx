@@ -11,7 +11,7 @@ const Footer = () => {
                     {/* Socials */}
                     <Socials
                     containerStyles='flex gap-x-6 mx-auto xl:mx-0 mb-4'
-                    iconStyles='text-white text-[20px] transition-all dark:text-white/70 hover:text-white dark:hover:text-primary'
+                    iconStyles='text-white text-[20px] transition-all dark:text-white hover:text-white dark:hover:text-white/40'
                     />
                     <div className="text-white">
                         Copyright &copy; 2024, All Rights Reserved

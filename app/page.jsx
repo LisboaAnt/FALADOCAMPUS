@@ -8,14 +8,15 @@ import Services from "@/components/Services";
 
 export default function Home() {
   return (
-    <main>
-      <Hero/>
-      <Features/>
-      <Services/>
-      <Gallery/>
-      <Reviews/>
-      <Faq/>
-      <Newsletter/>
-    </main>
+<main>
+  <Hero />
+  <Features />
+  <Services />
+  <Gallery />
+  <Reviews />
+  <Faq />
+  <Newsletter />
+</main>
+
   );
 }

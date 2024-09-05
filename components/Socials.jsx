@@ -1,5 +1,7 @@
 'use client';
 
+//Icons das redes Sociais
+
 import Link from 'next/link';
 import { RiPaypalFill, RiSnapchatFill, RiSafariFill, RiFacebookFill, RiInstagramFill } from 'react-icons/ri';
 

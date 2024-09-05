@@ -1,5 +1,7 @@
 'use client'
 
+//Logo do site
+
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -10,7 +12,7 @@ const Logo = () => {
         src="/logo.svg"
         width={55}
         height={55}
-        prioeity alt=""
+        priority alt=""
         />
     </Link>
   )

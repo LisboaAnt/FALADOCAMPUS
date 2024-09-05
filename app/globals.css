@@ -17,6 +17,7 @@
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
     --tertiary: 327 64% 97%;
+    --tertiary-foreground: 327 64% 97%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
     --accent: 240 4.8% 95.9%;
@@ -45,6 +46,7 @@
     --primary-foreground: 210 20% 98%;
     --secondary: 240 19% 16%;
     --secondary-foreground: 210 20% 28%;
+    --tertiary: 327 25% 18%;
     --muted: 12 6.5% 15%;
     --muted-foreground: 237 5% 64.9%;
     --accent: 240 19% 16%;
@@ -89,4 +91,12 @@
 
 .section-title{
   @apply text-4xl text-primary font-bold relative w-max flex items-center justify-between gap-x-3
+}
+
+.badge {
+  @apply z-10 w-[250px] px-16 h-[90px] bg-primary dark:backdrop-blur-[44px] shadow-2xl p-4 rounded-full flex items-center gap-x-4
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-primary !important
 }

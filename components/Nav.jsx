@@ -9,6 +9,8 @@ const links = [
     { path: '/contact', name: 'contact'},
 ]
 
+//Nav Faz a animacao da underline red
+
 //Next Hooks
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';

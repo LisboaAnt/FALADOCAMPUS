@@ -79,8 +79,8 @@ const Gallery = () => {
 
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] p-2">
                     {
-                        projectData.map((project) =>{
-                            return(<ProjectCard project={project}/>
+                        projectData.map((project, index) =>{
+                            return(<ProjectCard project={project} key={index}/>
                             )
                         })
                     }

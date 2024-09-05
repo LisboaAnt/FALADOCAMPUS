@@ -32,7 +32,7 @@ const Hero = () => {
                     {/* Subscribe Button */}
                     <div className="flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12">
                         <div className="flex w-full gap-x-4">
-                            <label for="email-address" className="sr-only">Email Address</label>
+                            <label htmlFor="email-address" className="sr-only">Email Address</label>
                             <Input type="email" id="email" placeholder="Email"/>
                             <Link href='/contact'>
                                 <Button className="gap-x-2 bg-black">

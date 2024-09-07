@@ -27,7 +27,7 @@ const infoData =[
 
 const About = () => {
   return (
-    <section className="pb-12 xl:py-24">
+    <section className="pb-12 min-h-screen xl:py-24">
       <div className="container mx-auto">
         <h2 className="section-title mb-8 xl:mb-16 text-center mx-auto">About me</h2>
         <div className="flex flex-col xl:flex-row">

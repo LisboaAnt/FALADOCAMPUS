@@ -4,6 +4,9 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
 
+//Added Toast Message
+import { Toaster } from "@/components/ui/toaster";
+
 //Themeprovider
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -28,6 +31,7 @@ export default function RootLayout({ children }) {
           <Header/>
           {children}  
           <Footer/>
+          <Toaster/>
         </ThemeProvider>
       </body>
     </html>

@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger} from '@/c
 const Faq = () => {
     return (
     <section>
-        <div className="container mx-auto">
+        <div className="container mx-auto backdrop-blur-sm">
             <div className="w-full pt-12 mb-6 xl:mb-24">
                 <h2 className="section-title mb-12 text-center mx-auto">
                     Our Studio
@@ -14,9 +14,9 @@ const Faq = () => {
                 <div>
                     {/* Accordion */}
                     <Accordion>
-                        <AccordionItem value="item-1">
+                        <AccordionItem value="item-1 ">
                             <AccordionTrigger>
-                                <div className="ms-3">
+                                <div className="ms-3 ">
                                     01. What kind of photography equipment do you use?
                                 </div>
                             </AccordionTrigger>

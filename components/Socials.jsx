@@ -1,4 +1,6 @@
-'use client';
+'use client'
+
+import { Fade } from "react-awesome-reveal"
 
 //Icons das redes Sociais
 
@@ -16,15 +18,17 @@ const icons = [
 const Socials = ({ containerStyles, iconStyles }) => {
     return (
     <div className={`${containerStyles}`}>
-        {icons.map((icon, index) => (
-            <Link href={icon.path} key={index} legacyBehavior>
-                <a target="_blank" rel="noopener noreferrer">
-                    <div className={`${iconStyles}`}>
-                        {icon.name}
-                    </div>
-                </a>
-            </Link>
-        ))}
+        <Fade direction="up" delay={0} cascade damping={0.1} triggerOnce={true}>
+            {icons.map((icon, index) => (
+                <Link href={icon.path} key={index} legacyBehavior>
+                    <a target="_blank" rel="noopener noreferrer">
+                        <div className={`${iconStyles}`}>
+                            {icon.name}
+                        </div>
+                    </a>
+                </Link>
+            ))}
+        </Fade>
     </div>
     );
 };

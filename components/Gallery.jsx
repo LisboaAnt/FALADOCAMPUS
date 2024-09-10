@@ -1,3 +1,5 @@
+'use client'
+import { Fade } from 'react-awesome-reveal'
 import React from 'react'
 import ProjectCard from './ProjectCard'
 
@@ -73,17 +75,21 @@ const Gallery = () => {
     return (
         <section  className="relative mb-12 xl:mb-48">
             <div className="container mx-auto">
-                <h2 className="section-title mb-8 xl:mb-16 text-center mx-auto">
-                    My Gallery
-                </h2>
+                <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
+                    <h2 className="section-title mb-8 xl:mb-16 text-center mx-auto">
+                        My Gallery
+                    </h2>
+                </Fade>
 
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] p-2">
-                    {
-                        projectData.map((project, index) =>{
-                            return(<ProjectCard project={project} key={index}/>
-                            )
-                        })
-                    }
+                    <Fade direction="up" delay={200} cascade damping={1e-1} triggerOnce={true}>
+                        {
+                            projectData.map((project, index) =>{
+                                return(<ProjectCard project={project} key={index}/>
+                                )
+                            })
+                        }
+                    </Fade>
                 </div>
             </div>
         </section>

@@ -1,5 +1,9 @@
+'use client'
+
 import { Smile, Scan, Bird} from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Fade } from "react-awesome-reveal"
+
 
 const servicesData =[
     {
@@ -27,32 +31,34 @@ const Services = () => {
 
                 {/* Category Items */}
                 <div className="grid xl:grid-cols-3 justify-center gap-y-12 xl:gap-y-24 xl:gap-x-8">
-                    {
-                        servicesData.map((item, index) => {
-                            return(
-                                <Card 
-                                className="relative w-full max-w-[425px] h-[450px] flex flex-col pb-10 justify-center items-center cursor-pointer  hover:bg-tertiary hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-700"
-                                key={index}>
-                                    <CardHeader
-                                    className="text-primary"
-                                    >
-                                        <div className="w-[80px] h-[80px] bg-primary text-white rounded-full flex justify-center items-center absolute -bottom-6 right-6">
-                                            {item.icon}
-                                        </div>
-                                    </CardHeader>
-                                    <CardContent className="text-center">
-                                        <CardTitle className="mb-4">
-                                            {item.title}
-                                        </CardTitle>
-                                        <CardDescription className="text-lg">
-                                            {item.description}
-                                        </CardDescription>
-                                    </CardContent>
+                    <Fade direction="up" delay={100} cascade damping={0.2} triggerOnce={true}>
+                        {
+                            servicesData.map((item, index) => {
+                                return(
+                                    <Card 
+                                    className="relative w-full max-w-[425px] h-[450px] flex flex-col pb-10 justify-center items-center cursor-pointer  hover:bg-tertiary hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-700"
+                                    key={index}>
+                                        <CardHeader
+                                        className="text-primary"
+                                        >
+                                            <div className="w-[80px] h-[80px] bg-primary text-white rounded-full flex justify-center items-center absolute -bottom-6 right-6">
+                                                {item.icon}
+                                            </div>
+                                        </CardHeader>
+                                        <CardContent className="text-center">
+                                            <CardTitle className="mb-4">
+                                                {item.title}
+                                            </CardTitle>
+                                            <CardDescription className="text-lg">
+                                                {item.description}
+                                            </CardDescription>
+                                        </CardContent>
 
-                                </Card>
-                            )
-                        })
-                    }
+                                    </Card>
+                                )
+                            })
+                        }
+                    </Fade>
                 </div>
             </div>
         </section>

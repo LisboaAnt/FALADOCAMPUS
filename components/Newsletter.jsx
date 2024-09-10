@@ -18,7 +18,7 @@ const Newsletter = () => {
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
                     <div className="max-w-xl lg:max-w-lg">
                         <Fade direction="left" delay={200} cascade damping={0.2} triggerOnce={true}>
-                            <h2 className="text-3xl font-blod tracking-tighter section-title sm:text-4xl">Need a Photographer?</h2>
+                            <h2 className="text-3xl font-blod tracking-tighter section-title sm:text-4xl">Need a <br className="sm:hidden" /> Photographer?</h2>
                             <p className="mt-4 text-lg leading-8 subtitle">
                             But I must explain to you how all this mistaken idea of denouncing pleasure and praising
                             pain was born and I will give you a complete account of the system, and expound the actual

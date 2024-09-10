@@ -57,9 +57,10 @@ const  Reviews = () => {
         <section className="mb-12 xl:mb-32">
             <div className="container mx-auto ">
                 <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
-                    <h2 className="section-title mb-12 text-center mx-auto">
-                        The say about our work
+                    <h2 className="section-title mb-12 text-center mx-auto text-2xl ">
+                    The say <br className="sm:hidden" /> about our work
                     </h2>
+
                 </Fade>
                 {/* Slider */}
                 <Fade direction="up" delay={600} cascade damping={1e-1} triggerOnce={true}>

@@ -81,11 +81,12 @@ const Gallery = () => {
                     </h2>
                 </Fade>
 
-                <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] p-2">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1))] ">
                     <Fade direction="up" delay={200} cascade damping={1e-1} triggerOnce={true}>
                         {
                             projectData.map((project, index) =>{
-                                return(<ProjectCard project={project} key={index}/>
+                                return(
+                                <ProjectCard project={project} key={index}/>
                                 )
                             })
                         }

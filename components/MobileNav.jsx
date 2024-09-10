@@ -4,6 +4,8 @@ import Logo from './Logo'
 import Socials from './Socials';
 import { AlignJustify } from 'lucide-react';
 
+import * as SheetPrimitive from "@radix-ui/react-dialog"
+import { SheetClose } from '@/components/ui/sheet';
 //Nav Mobile
 
 const MobileNav = () => {
@@ -15,21 +17,25 @@ const MobileNav = () => {
         />
       </SheetTrigger>
       <SheetContent>
-      <div className='flex flex-col items-center justify-between h-full py-8'>
-        <div className='flex flex-col items-center gap-y-32'>
-          <Logo/>
-          <Nav
-          containerStyles='flex flex-col items-center gap-y-6'
-          linkStyles='text-1xl'
+        <div className='flex flex-col items-center justify-between h-full py-8'>
+          <div className='flex flex-col items-center gap-y-32'
+          >
+            <Logo/>
+              <Nav
+              containerStyles='flex flex-col items-center gap-y-6'
+              linkStyles='text-1xl'
+              closeSheet={() =>(document.querySelector('div[role="dialog"]').style.display = 'none', document.querySelector('div[data-state="open"]').style.display = 'none')}
+
+              />
+
+          </div>
+
+          {/* Social Icons */}
+          <Socials
+          containerStyles='flex gap-x-4'
+          iconStyles='text-2xl'
           />
         </div>
-
-        {/* Social Icons */}
-        <Socials
-        containerStyles='flex gap-x-4'
-        iconStyles='text-2xl'
-        />
-      </div>
       </SheetContent>
     </Sheet>
   )

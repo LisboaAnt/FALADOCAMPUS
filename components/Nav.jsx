@@ -10,12 +10,12 @@ const links = [
 ]
 
 //Nav Faz a animacao da underline red
-
+import { SheetClose } from './ui/sheet';
 //Next Hooks
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
-const Nav = ({  containerStyles, linkStyles, underlineStyles  }) => {
+const Nav = ({  containerStyles, linkStyles, underlineStyles, closeSheet  }) => {
 
     const path = usePathname();
 
@@ -28,6 +28,7 @@ const Nav = ({  containerStyles, linkStyles, underlineStyles  }) => {
                 href={link.path}
                 key={index}
                 className={`capitalize ${linkStyles}`}
+                onClick={closeSheet}
                 >
                     {link.path === path && (
                         <motion.span

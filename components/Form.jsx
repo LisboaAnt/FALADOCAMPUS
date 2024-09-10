@@ -12,7 +12,7 @@ import { UserCheck, MailIcon, ArrowRightIcon, MessageSquare, UserRoundCheck, Bui
 
 const Form = () => {
     return (
-    <form className="flex flex-col gap-y-4">
+    <form className="flex flex-col gap-y-4 pb-3">
         {/* First Name */}
         <Fade direction="right" delay={400} cascade damping={0.2} triggerOnce={true}>
             <div className="relative flex items-center">

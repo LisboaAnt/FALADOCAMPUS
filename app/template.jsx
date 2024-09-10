@@ -24,7 +24,7 @@ const template = ({children}) => {
             className="bg-blend-overlay dark:bg-blend-multiply dark:bg-[rgba(40,42,63,255)]"
             style={{
                 backgroundImage: `
-                    linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(150, 150, 150, 1)),  
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(170, 170, 170, 1)),  
                     url("/imgs/bg-texture.jpg")
                 `,  
                 backgroundRepeat: 'repeat',                     

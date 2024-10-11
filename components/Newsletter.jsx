@@ -20,9 +20,7 @@ const Newsletter = () => {
                         <Fade direction="left" delay={200} cascade damping={0.2} triggerOnce={true}>
                             <h2 className="text-3xl font-blod tracking-tighter section-title sm:text-4xl">Need a <br className="sm:hidden" /> Photographer?</h2>
                             <p className="mt-4 text-lg leading-8 subtitle">
-                            But I must explain to you how all this mistaken idea of denouncing pleasure and praising
-                            pain was born and I will give you a complete account of the system, and expound the actual
-                            teachings of the great explorer of the truth, the master-builder of human happiness.
+                            Looking for a professional photographer to capture your special moments or elevate your brand? Get in touch with us today! Simply subscribe to our mailing list, and we'll reach out to discuss your photography needs. Whether it's a portrait session, event coverage, or product photography, we're here to turn your vision into stunning images. Subscribe now, and let’s start creating together!
                             </p>
                             <div>
                                 <label className="sr-only">
@@ -56,7 +54,7 @@ const Newsletter = () => {
 
                                 <dt className="mt-4 font-semibold text-muted-foreground">Weekly articles</dt>
                                 <dd className="mt-2 leading-7">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit destinctio incidunt, id officiss
+                                    Discover weekly articles filled with photography tips, insights, and inspiration to enhance your skills and creativity.
                                 </dd>
                             </div>
 
@@ -67,7 +65,7 @@ const Newsletter = () => {
 
                                 <dt className="mt-4 font-semibold text-muted-foreground">Full Security</dt>
                                 <dd className="mt-2 leading-7">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit destinctio incidunt, id officiss
+                                    Enjoy peace of mind with our comprehensive security services, tailored to protect you and your assets.
                                 </dd>
                             </div>
                         </Fade>

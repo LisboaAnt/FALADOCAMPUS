@@ -24,42 +24,33 @@ const Faq = () => {
                             <AccordionItem value="item-1 ">
                                 <AccordionTrigger>
                                     <div className="ms-3 ">
-                                        01. What kind of photography equipment do you use?
+                                        01. What types of photography services do you offer?
                                     </div>
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    But I must explain to you how all this mistaken idea of denouncing pleasure
-                                    and praising pain was born and I will give you. But I must explain to you
-                                    how all this mistaken idea of denouncing pleasure and praising pain was
-                                    born and I will give you a complete account of the system.
+                                We specialize in various types of photography, including portrait, landscape, event, and product photography. Whether you're looking for a personal photo shoot, capturing special events, or showcasing products, we tailor our services to meet your unique needs.
                                 </AccordionContent>
                             </AccordionItem>
 
                             <AccordionItem value="item-2">
                                 <AccordionTrigger>
                                     <div className="ms-3">
-                                        01. What kind of photography equipment do you use?
+                                        02. How can I book a photography session with you?
                                     </div>
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    But I must explain to you how all this mistaken idea of denouncing pleasure
-                                    and praising pain was born and I will give you. But I must explain to you
-                                    how all this mistaken idea of denouncing pleasure and praising pain was
-                                    born and I will give you a complete account of the system. 
+                                Booking a session is simple! Just visit the "Contact" section of our website and fill out the form with your details. You can also email or call us directly to discuss your requirements, and we'll work with you to schedule a date that suits you.
                                 </AccordionContent>
                             </AccordionItem>
 
                             <AccordionItem value="item-3">
                                 <AccordionTrigger>
                                     <div className="ms-3">
-                                        01. What kind of photography equipment do you use?
+                                        03. Do you offer photo editing and retouching services?
                                     </div>
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    But I must explain to you how all this mistaken idea of denouncing pleasure
-                                    and praising pain was born and I will give you. But I must explain to you
-                                    how all this mistaken idea of denouncing pleasure and praising pain was
-                                    born and I will give you a complete account of the system. 
+                                Yes, all of our photography packages include professional photo editing and retouching to ensure your images look their best. We use advanced editing techniques to enhance colors, lighting, and composition while maintaining a natural and authentic look.
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>

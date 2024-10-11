@@ -9,17 +9,17 @@ const servicesData =[
     {
         icon: <Smile size={48} strokeWidth={1}/>,
         title: 'Portraiture',
-        description: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system'
+        description: 'Portraiture is more than just capturing faces—its about telling a story, revealing personality, and preserving moments. Our portrait photography services focus on creating timeless, authentic images that reflect the true essence of each individual. Whether youre looking for professional headshots, family portraits, or creative personal shoots, we work closely with you to craft stunning visuals that are as unique as you are.'
     },
     {
         icon: <Scan size={48} strokeWidth={1}/>,
         title: 'Landscapes',
-        description: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system'
+        description: 'Our landscape photography captures the beauty of nature and stunning scenery, from majestic mountains to serene seascapes. Each image is thoughtfully composed to showcase the world’s natural wonders, offering a unique perspective that brings the outdoors to life.'
     },
     {
         icon: <Bird size={48} strokeWidth={1}/>,
         title: 'Lifestyle',
-        description: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system'
+        description: 'Our lifestyle photography captures candid moments that reflect real-life experiences and emotions. From everyday activities to special occasions, we create authentic images that tell your story in a natural and visually engaging way.'
     }
 ]
 

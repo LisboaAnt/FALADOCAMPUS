@@ -9,10 +9,10 @@ import { useTheme } from "next-themes";
 const ThemeToggler = () => {
     const { theme, setTheme } = useTheme()
     return (
-        <div>
+        <div className="fixed right-0">
             <Button 
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="w-10 "
+            className="w-[100px] m-5"
             >
                 <SunIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
                 />

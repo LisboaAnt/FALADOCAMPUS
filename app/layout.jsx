@@ -1,10 +1,5 @@
 import "./globals.css";
 
-//Import Components
-import { Header } from "@/components/Header";
-import Footer from "@/components/Footer";
-
-//Added Toast Message
 import { Toaster } from "@/components/ui/toaster";
 
 //Themeprovider
@@ -12,7 +7,6 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 
 //Font
 import { Sen } from "next/font/google"
-
 const SenFont = Sen({
   subsets: ['latin'],
   weight: ["400", "500", "600", "700"],
@@ -28,9 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="pt" suppressHydrationWarning>
       <body className={SenFont.className}>
         <ThemeProvider attribute='class' defaultTheme='light'>
-          <Header/>
-          {children}  
-          <Footer/>
+            {children}    
           <Toaster/>
         </ThemeProvider>
       </body>

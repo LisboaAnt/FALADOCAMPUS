@@ -1,61 +1,27 @@
 'use client'
 
-//Header WebPage
+import Image from 'next/image'
+import ThemeToggler from './ThemeToggler';
 
-import React, { useState, useEffect} from "react"
-import ThemeToggler from "./ThemeToggler"
-
-//Import Components
-import Logo from "./Logo"
-import Nav from "./Nav"
-import MobileNav from "./MobileNav"
-import { usePathname } from "next/navigation"
-
-export const Header = () => {
-
-  const [header, setHeader] = useState(false);
-  const pathname = usePathname();
-  
-  useEffect(() => {
-    const scrollYPos = window.addEventListener('scroll', () => {
-      window.scrollY > 50 ? setHeader(true) : setHeader(false);
-    });
-
-    return () => window.removeEventListener('scroll', scrollYPos);
-  }
-
-  )
-  return (
-    <header
-    className={`${
-      header
-      ? 'py-4 bg-white shadow-lg dark:bg-accent'
-      : 'py-6 dark:bg-transparent'  
-    } sticky top-0 z-30 transition-all ${ pathname === '/' && 'bg-[#fff]'}`}
-    >
-      <div className="container mx-auto">
-        <div className="flex justify-between items-center">
-          <Logo/>
-
-          <div className="flex items-center gap-6">
-            {/*Nav Section*/}
-            <Nav
-            containerStyles='hidden xl:flex gap-x-8 items-center'
-            linkStyles='relative hover:text-primary transition-all'
-            underlineStyles='absolute left-0 top-full h-[2px] bg-primary w-full'
-            />
-
-            {/*Theme Toggle*/}
-            <ThemeToggler/>
-
-            {/*Mobile Navigation*/}
-            <div className="xl:hidden">
-              <MobileNav/>
+const Header = () => {
+    return (
+        <div className="flex justify-center">
+            <div className='flex p-4 pt-6 itens-center text-center'>
+                <Image
+                    src="/logo.svg"
+                    width={25}
+                    height={25}
+                    priority alt=""
+                />
+                <h5 className='ml-2 leading-[50px]'>FALA DO CAMPUS</h5>
             </div>
-          </div>
-        </div>  
-        
-      </div>
-    </header>
-  )
-}
+
+            <div>
+                <ThemeToggler/>
+            </div>
+        </div>
+    );
+};
+
+
+export default Header;

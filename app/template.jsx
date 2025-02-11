@@ -21,18 +21,7 @@ const template = ({children}) => {
             initial='hidden'
             animate='enter'
             transition={{ type: 'linear', delay: 0.2, duration: 0.4}}
-            className="bg-blend-overlay dark:bg-blend-multiply dark:bg-[rgba(40,42,63,255)]"
-            style={{
-                backgroundImage: `
-                    linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(170, 170, 170, 1)),  
-                    url("/imgs/bg-texture.jpg")
-                `,  
-                backgroundRepeat: 'repeat',                     
-                backgroundSize: 'auto',                 
-                backgroundPosition: 'center',
-                }}
             >
-                
                 {children}
             </motion.main>
 

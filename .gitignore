@@ -13,8 +13,6 @@
 # next.js
 /out/
 
-# 
-/.next/
 
 # misc
 .DS_Store

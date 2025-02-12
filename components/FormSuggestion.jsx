@@ -13,7 +13,7 @@ email: z.string().email("E-mail inválido"),
 phone: z.string().min(11, "Telefone inválido"),
 title: z.string().min(5, "O título deve ter pelo menos 5 caracteres"),
 description: z.string().min(10, "A descrição deve ter pelo menos 10 caracteres"),
-files: z.instanceof(FileList).optional(), // Validação opcional para arquivos
+files: typeof window !== "undefined" ? z.instanceof(FileList).optional() : z.unknown().optional(), // Condicional
 });
 
 const FormSuggestion = () => {

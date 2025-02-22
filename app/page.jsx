@@ -1,6 +1,6 @@
 "use client"
 import AnimatedBackground from "@/components/AnimatedBackground";
-import Form from "@/components/FormMain";
+import Form from "@/components/forms/FormMain";
 import Header from "@/components/Header";
 
 export default function Home() {

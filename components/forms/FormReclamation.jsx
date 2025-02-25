@@ -7,8 +7,7 @@ import { z } from "zod";
 import IdentificationSection from "./components/IdentificationSection";
 import MessageSection from "./components/MessageSection";
 import FileUploadSection from "./components/FileUploadSection";
-import { sendEmail } from "@/api/sendEmail";
-import { convertToBase64 } from "@/api/convertFile"
+import { sendEmail } from "@/api/sendForEmail.js";
 
 import { useToast } from '@/components/ui/use-toast'
 
@@ -23,126 +22,125 @@ files: typeof window !== "undefined" ? z.instanceof(FileList).optional() : z.unk
 });
 
 const FormReclamation = () => {
-const [isSwitchOn, setIsSwitchOn] = useState(false);
-const [selectedFiles, setSelectedFiles] = useState([]);
-const [fileError, setFileError] = useState("");
-    
-const {toast} = useToast()
+    const [isSwitchOn, setIsSwitchOn] = useState(false);
+    const [selectedFiles, setSelectedFiles] = useState([]);
+    const [fileError, setFileError] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    clearErrors,
-} = useForm({ resolver: zodResolver(formSchema) });
+    const {toast} = useToast()
 
-const handleSwitchChange = (e) => {
-    setIsSwitchOn(e.target.checked);
-    reset({
-        name: undefined,
-        email: undefined,
-        phone: undefined,
-    });
-    clearErrors()
-};
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+        clearErrors,
+    } = useForm({ resolver: zodResolver(formSchema) });
 
-const handleFileChange = (e) => {
-    const newFiles = Array.from(e.target.files);
-
-    if (selectedFiles.length + newFiles.length > 20) {
-    setFileError("Você pode enviar no máximo 20 arquivos.");
-    return;
-    }
-
-    setFileError("");
-    setSelectedFiles((prevFiles) => [...prevFiles, ...newFiles]);
-};
-
-const removeFile = (index) => {
-    const newFiles = selectedFiles.filter((_, i) => i !== index);
-    setSelectedFiles(newFiles);
-};
-
-const onSubmit = async (data) => {
-    if (selectedFiles.length > 20) {
-        setFileError("Você pode enviar no máximo 20 arquivos.");
-        return;
-    }
-
-    // Convertendo arquivos para Base64
-    const base64Files = await Promise.all(selectedFiles.map(async (file) => {
-        const base64 = await convertToBase64(file);
-        return { name: file.name, type: file.type, base64 };
-    }));
-
-    data.recipient = "Qualquer pessoa que possa me ajudar";
-    data.to_email = process.env.NEXT_PUBLIC_EMAILS;
-    data.archives = base64Files;
-
-    const result = await sendEmail(data);
-
-    if (result.success) {
-        toast({
-            title: "Mensagem enviada",
-            description: "Em breve, algum membro do C.A. irá analisar.",
-        });
-        setSelectedFiles([]);  // Limpa os arquivos
-        setFileError(""); // Limpa a mensagem de erro
-    } else {
-        toast({
-            title: "Erro ao enviar. Tente novamente mais tarde",
-            description: "Se o erro persistir, comunique a um dos C.A.",
-        });
-    }
-
-    if (isSwitchOn) {
-        reset({
-            name: "",
-            email: "",
-            phone: "",
-            title: "",
-            description: "",
-        });
-    } else {
+    const handleSwitchChange = (e) => {
+        setIsSwitchOn(e.target.checked);
         reset({
             name: undefined,
             email: undefined,
             phone: undefined,
-            title: "",
-            description: "",
         });
-    }
-};
+        clearErrors()
+    };
+
+    const handleFileChange = (e) => {
+        const newFiles = Array.from(e.target.files);
+
+        if (selectedFiles.length + newFiles.length > 20) {
+        setFileError("Você pode enviar no máximo 20 arquivos.");
+        return;
+        }
+
+        setFileError("");
+        setSelectedFiles((prevFiles) => [...prevFiles, ...newFiles]);
+    };
+
+    const removeFile = (index) => {
+        const newFiles = selectedFiles.filter((_, i) => i !== index);
+        setSelectedFiles(newFiles);
+    };
+
+    const onSubmit = async (data) => {
+        if (selectedFiles.length > 20) {
+            setFileError("Você pode enviar no máximo 20 arquivos.");
+            return;
+        }
+
+        // Convertendo arquivos para Base64
+
+        data.recipient = "Qualquer pessoa que possa me ajudar";
+        data.to_email = process.env.NEXT_PUBLIC_EMAILS;
+
+        setIsSubmitting(true);
+        const result = await sendEmail(data);
+        setIsSubmitting(false);
+        
+        if (result.success) {
+            toast({
+                title: "Mensagem enviada",
+                description: "Em breve, algum membro do C.A. irá analisar.",
+            });
+            setSelectedFiles([]);  // Limpa os arquivos
+            setFileError(""); // Limpa a mensagem de erro
+        } else {
+            toast({
+                title: "Erro ao enviar. Tente novamente mais tarde",
+                description: "Se o erro persistir, comunique a um dos C.A.",
+            });
+        }
+
+        if (isSwitchOn) {
+            reset({
+                name: "",
+                email: "",
+                phone: "",
+                title: "",
+                description: "",
+            });
+        } else {
+            reset({
+                name: undefined,
+                email: undefined,
+                phone: undefined,
+                title: "",
+                description: "",
+            });
+        }
+    };
 
 
-return (
-    <div className="flex flex-col p-8 sm:p-20 sm:pt-1 w-full">
-    <IdentificationSection
-        isSwitchOn={isSwitchOn}
-        handleSwitchChange={handleSwitchChange}
-        register={register}
-        errors={errors}
-    />
-
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 w-full">
-        <MessageSection register={register} errors={errors} />
-        <FileUploadSection
-        selectedFiles={selectedFiles}
-        handleFileChange={handleFileChange}
-        removeFile={removeFile}
-        fileError={fileError}
+    return (
+        <div className="">
+        <IdentificationSection
+            isSwitchOn={isSwitchOn}
+            handleSwitchChange={handleSwitchChange}
+            register={register}
+            errors={errors}
         />
 
-        <button
-        type="submit"
-        className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors mt-6"
-        >
-        Enviar
-        </button>
-    </form>
-    </div>
-);
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 w-full">
+            <MessageSection register={register} errors={errors} />
+            <FileUploadSection
+            selectedFiles={selectedFiles}
+            handleFileChange={handleFileChange}
+            removeFile={removeFile}
+            fileError={fileError}
+            />
+
+            <button
+                type="submit"
+                className="w-full bg-[#4B2DBB] text-white p-2 rounded hover:bg-[#4B2DBB]/60 transition-colors mt-6"
+                disabled={isSubmitting}
+            >
+            {isSubmitting ? "Enviando..." : "Enviar"}
+            </button>
+        </form>
+        </div>
+    );
 };
 
 export default FormReclamation;

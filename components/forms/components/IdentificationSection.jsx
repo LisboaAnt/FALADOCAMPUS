@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { SquareUserRound } from "lucide-react";
 import { Fade } from "react-awesome-reveal";
@@ -17,10 +18,10 @@ return (
             onChange={handleSwitchChange}
             className="sr-only peer"
         />
-        <div className="w-11 h-6 bg-[#FF5959] peer-focus:ring-0 rounded-full peer dark:bg-gray-700 peer-checked:bg-[#FF5959] transition-all duration-300 ease-in-out"></div>
-        <div className="absolute left-1 top-1 w-4 h-4 bg-[#FF5959] peer-checked:bg-white rounded-full shadow-md transform transition-all duration-300 ease-in-out peer-checked:translate-x-5"></div>
+        <div className="w-11 h-6 bg-[#a5a5a5] peer-checked:bg-[#d4d4d4] peer-focus:ring-0 rounded-full peer dark:bg-gray-700/30 dark:peer-checked:bg-[#4B2DBB] transition-all duration-300 ease-in-out"></div>
+        <div className="absolute left-1 top-1 w-4 h-4 dark:bg-[#4B2DBB] bg-[#efefef] dark:peer-checked:bg-white peer-checked:bg-[#5e5e5e] rounded-full shadow-md transform transition-all duration-300 ease-in-out peer-checked:translate-x-5"></div>
         </label>
-        <label className="text-sm font-medium">Quero me identificar</label>
+        <label className="text-sm font-medium dark:text-gray-300">Quero me identificar</label>
     </div>
 
     {isSwitchOn && (

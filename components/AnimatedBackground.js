@@ -40,7 +40,7 @@ const AnimatedBackground = () => {
             // Função para obter a cor com base no tema
             const getThemeColor = () => {
                 return getComputedStyle(document.documentElement)
-                    .getPropertyValue("--primary")
+                    .getPropertyValue("--primary-foreground")
                     .trim(); // Pegamos a cor do tema
             };
 

@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import { FileLock2 } from 'lucide-react';
 
@@ -15,8 +17,8 @@ return (
             defaultChecked
             className="peer hidden"
             />
-            <div className="w-4 h-4 rounded-full border border-gray-600 bg-gray-700 transition-all duration-300 ease-in-out peer-checked:bg-[#4B2DBB] peer-checked:border-none"></div>
-        <p className="text-sm dark:text-gray-300 dark:peer-checked:text-gray-100 transition-all duration-300 ease-in-out">
+            <div className="w-4 h-4 rounded-full border dark:border-gray-600 border-gray-600/20 dark:bg-gray-700 bg-gray-700/20 transition-all duration-300 ease-in-out dark:peer-checked:bg-[#4B2DBB] peer-checked:bg-[#4B2DBB]/80 peer-checked:border-none"></div>
+        <p className="text-sm dark:text-gray-400 dark:peer-checked:text-gray-300 transition-all duration-300 ease-in-out">
         Qualquer pessoa que possa me ajudar
         </p>
         </label>
@@ -27,8 +29,8 @@ return (
                 {...register("recipient")}
                 className="peer hidden"
             />
-            <div className="w-4 h-4 rounded-full border border-gray-600 bg-gray-700 transition-all duration-300 ease-in-out peer-checked:bg-[#4B2DBB] peer-checked:border-none"></div>
-            <p className="text-sm dark:text-gray-300 dark:peer-checked:text-gray-100 transition-all duration-300 ease-in-out">Uma mulher</p>
+            <div className="w-4 h-4 rounded-full border dark:border-gray-600 border-gray-600/20 dark:bg-gray-700 bg-gray-700/20 transition-all duration-300 ease-in-out dark:peer-checked:bg-[#4B2DBB] peer-checked:bg-[#4B2DBB]/80 peer-checked:border-none"></div>
+            <p className="text-sm dark:text-gray-400 dark:peer-checked:text-gray-300 transition-all duration-300 ease-in-out">Uma mulher</p>
         </label>
 
         <label className="flex items-center gap-2">
@@ -38,8 +40,8 @@ return (
             {...register("recipient")}
             className="peer hidden"
             />
-            <div className="w-4 h-4 rounded-full border border-gray-600 bg-gray-700 transition-all duration-300 ease-in-out peer-checked:bg-[#4B2DBB] peer-checked:border-none"></div>
-        <p className="text-sm dark:text-gray-300 dark:peer-checked:text-gray-100 transition-all duration-300 ease-in-out">Um homem</p>
+            <div className="w-4 h-4 rounded-full border dark:border-gray-600 border-gray-600/20 dark:bg-gray-700 bg-gray-700/20 transition-all duration-300 ease-in-out dark:peer-checked:bg-[#4B2DBB] peer-checked:bg-[#4B2DBB]/80 peer-checked:border-none"></div>
+        <p className="text-sm dark:text-gray-400 dark:peer-checked:text-gray-300 transition-all duration-300 ease-in-out">Um homem</p>
         </label>
         {errors.recipient && <p className="text-red-500 text-sm">{errors.recipient.message}</p>}
     </div>

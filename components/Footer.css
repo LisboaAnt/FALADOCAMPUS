@@ -1,0 +1,21 @@
+.hover-letter {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+@keyframes lift {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animate-lift {
+    animation: lift 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+}

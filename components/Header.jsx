@@ -11,7 +11,7 @@ const Header = () => {
                     src="/logo.svg"
                     width={25}
                     height={25}
-                    priority alt=""
+                    priority alt="Logo"
                 />
                 <h5 className='ml-2 leading-[50px]'>FALA DO CAMPUS</h5>
             </div>

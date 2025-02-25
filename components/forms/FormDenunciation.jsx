@@ -8,7 +8,7 @@ import IdentificationSection from "./components/IdentificationSection";
 import RecipientSection from "./components/RecipientSection";
 import MessageSection from "./components/MessageSection";
 import FileUploadSection from "./components/FileUploadSection";
-import { sendEmail } from "@/api/sendEmail";
+import { sendEmail } from "@/api/sendForEmail.js";
 
 import { useToast } from '@/components/ui/use-toast'
 
@@ -27,7 +27,9 @@ const FormDenunciation = () => {
 const [isSwitchOn, setIsSwitchOn] = useState(false);
 const [selectedFiles, setSelectedFiles] = useState([]);
 const [fileError, setFileError] = useState("");
-    
+const [isSubmitting, setIsSubmitting] = useState(false);
+
+
 const {toast} = useToast()
 
 const {
@@ -78,7 +80,9 @@ const onSubmit = async (data) => {
         data.to_email = process.env.NEXT_PUBLIC_MAN_EMAILS;
     }
     data.archives = selectedFiles
+    setIsSubmitting(true);
     const result = await sendEmail(data);
+    setIsSubmitting(false);
 
     if (result.success) {
         toast({
@@ -114,7 +118,7 @@ const onSubmit = async (data) => {
 };
 
 return (
-    <div className="flex flex-col p-8 sm:p-20 sm:pt-1 w-full">
+    <div className="">
     <IdentificationSection
         isSwitchOn={isSwitchOn}
         handleSwitchChange={handleSwitchChange}
@@ -134,9 +138,10 @@ return (
 
         <button
         type="submit"
-        className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors mt-6"
+        className="w-full bg-[#4B2DBB] text-white p-2 rounded hover:bg-[#4B2DBB]/60 transition-colors mt-6"
+        disabled={isSubmitting}
         >
-        Enviar
+        {isSubmitting ? "Enviando..." : "Enviar"}
         </button>
     </form>
     </div>

@@ -13,7 +13,7 @@ const ThemeToggler = () => {
         <div className="fixed right-0 z-50"> {/* Adicionado z-50 para garantir que fique na frente */}
             <Button 
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="sm:w-[70px] m-5"
+                className="sm:w-[55px] m-5"
             >
                 <SunIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />

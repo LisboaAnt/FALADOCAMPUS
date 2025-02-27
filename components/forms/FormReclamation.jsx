@@ -7,7 +7,6 @@ import { z } from "zod";
 import IdentificationSection from "./components/IdentificationSection";
 import MessageSection from "./components/MessageSection";
 import FileUploadSection from "./components/FileUploadSection";
-import { sendEmail } from "@/api/sendForEmail.js";
 
 import { useToast } from '@/components/ui/use-toast'
 
@@ -69,46 +68,73 @@ const FormReclamation = () => {
             setFileError("Você pode enviar no máximo 20 arquivos.");
             return;
         }
-
-        // Convertendo arquivos para Base64
-
-        data.recipient = "Qualquer pessoa que possa me ajudar";
+        data.type = "😤Reclamação😤"
         data.to_email = process.env.NEXT_PUBLIC_EMAILS;
-
+    
+        // Converter arquivos para formato adequado
+        const processedFiles = await Promise.all(
+            selectedFiles.map(async (file) => {
+                return {
+                    name: file.name,
+                    data: await fileToBase64(file)
+                };
+            })
+        );
+    
+        const formData = {
+            ...data,
+            archives: processedFiles
+        };
+    
         setIsSubmitting(true);
-        const result = await sendEmail(data);
-        setIsSubmitting(false);
-        
-        if (result.success) {
-            toast({
-                title: "Mensagem enviada",
-                description: "Em breve, algum membro do C.A. irá analisar.",
+    
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
             });
-            setSelectedFiles([]);  // Limpa os arquivos
-            setFileError(""); // Limpa a mensagem de erro
-        } else {
+    
+            const result = await response.json();
+    
+            if (response.ok) {
+                toast({
+                    title: "Mensagem enviada",
+                    description: "Em breve, algum membro do C.A. irá analisar."
+                }); 
+                setSelectedFiles([]);
+                setFileError("");
+                
+                if(isSwitchOn){ 
+                    reset({
+                        name: "",
+                        email: "",
+                        phone: "",
+                        title: "",
+                        description: "",
+                    });
+                } else {
+                    reset({
+                        name: undefined,
+                        email: undefined,
+                        phone: undefined,
+                        title: "",
+                        description: "",
+                    });
+                }
+            } else {
+                throw new Error(result.error || 'Erro ao enviar email');
+            }
+        } catch (error) {
+            console.error('Erro:', error);
             toast({
                 title: "Erro ao enviar. Tente novamente mais tarde",
-                description: "Se o erro persistir, comunique a um dos C.A.",
+                description: "Se o erro persistir, comunique a um dos C.A."
             });
-        }
-
-        if (isSwitchOn) {
-            reset({
-                name: "",
-                email: "",
-                phone: "",
-                title: "",
-                description: "",
-            });
-        } else {
-            reset({
-                name: undefined,
-                email: undefined,
-                phone: undefined,
-                title: "",
-                description: "",
-            });
+        } finally {
+            setIsSubmitting(false);
         }
     };
 

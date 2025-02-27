@@ -1,6 +1,4 @@
-import { Fade } from "react-awesome-reveal"
-import React, { useState, useEffect } from 'react'
-import { Button } from '../ui/button'
+import React, { useState} from 'react'
 import { Frown, OctagonAlert, Lightbulb } from 'lucide-react'
 import FormDenunciation from "./FormDenunciation"
 import FormReclamation from "./FormReclamation"
@@ -9,21 +7,6 @@ import FormSugeestion from "./FormSuggestion"
 const Form = () => {
     const [typeForm, setTypeForm] = useState("Suggestion")
 
-    useEffect(() => {
-        const loadSMTPScript = () => {
-            if (typeof window !== 'undefined' && !window.Email) {
-                const script = document.createElement('script');
-                script.src = 'https://smtpjs.com/v3/smtp.js';
-                script.async = true;
-                script.onload = () => {
-                    console.log('SMTP.js carregado com sucesso');
-                };
-                document.body.appendChild(script);
-            }
-        };
-
-        loadSMTPScript();
-    }, []);
 
 
     return (

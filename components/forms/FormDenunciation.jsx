@@ -8,8 +8,6 @@ import IdentificationSection from "./components/IdentificationSection";
 import RecipientSection from "./components/RecipientSection";
 import MessageSection from "./components/MessageSection";
 import FileUploadSection from "./components/FileUploadSection";
-import { sendEmail } from "@/api/sendForEmail.js";
-
 import { useToast } from '@/components/ui/use-toast'
 
 // Esquema de validação com Zod
@@ -69,52 +67,95 @@ const removeFile = (index) => {
 
 const onSubmit = async (data) => {
     if (selectedFiles.length > 20) {
-    setFileError("Você pode enviar no máximo 20 arquivos.");
-    return;
+        setFileError("Você pode enviar no máximo 20 arquivos.");
+        return;
     }
-    if (!data.recipient || data.recipient === "Qualquer pessoa que possa me ajudar") {
+    data.type = "🚨Denúncia🚨"
+    if (data.recipient === "Qualquer pessoa que possa me ajudar") {
         data.to_email = process.env.NEXT_PUBLIC_EMAILS;
     } else if (data.recipient === "Uma mulher") {
         data.to_email = process.env.NEXT_PUBLIC_WOMAN_EMAILS;
     } else if (data.recipient === "Um homem") {
         data.to_email = process.env.NEXT_PUBLIC_MAN_EMAILS;
     }
-    data.archives = selectedFiles
-    setIsSubmitting(true);
-    const result = await sendEmail(data);
-    setIsSubmitting(false);
+    console.log(data.to_email)
+    console.log(data.recipient)
 
-    if (result.success) {
-        toast({
-            title: "Mensagem enviada",
-            description: "Em breve, algum membro do C.A. irá analisar."
-        }); 
-        setSelectedFiles([]);  // Limpa os arquivos
-        setFileError(""); // Limpa a mensagem de erro
-    } else {
+    // Converter arquivos para formato adequado
+    const processedFiles = await Promise.all(
+        selectedFiles.map(async (file) => {
+            return {
+                name: file.name,
+                data: await fileToBase64(file)
+            };
+        })
+    );
+
+    const formData = {
+        ...data,
+        archives: processedFiles
+    };
+
+    setIsSubmitting(true);
+
+    try {
+        const response = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            toast({
+                title: "Mensagem enviada",
+                description: "Em breve, algum membro do C.A. irá analisar."
+            }); 
+            setSelectedFiles([]);
+            setFileError("");
+            
+            if(isSwitchOn){ 
+                reset({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    title: "",
+                    description: "",
+                });
+            } else {
+                reset({
+                    name: undefined,
+                    email: undefined,
+                    phone: undefined,
+                    title: "",
+                    description: "",
+                });
+            }
+        } else {
+            throw new Error(result.error || 'Erro ao enviar email');
+        }
+    } catch (error) {
+        console.error('Erro:', error);
         toast({
             title: "Erro ao enviar. Tente novamente mais tarde",
-            description:"Se o erro persistir, comunique a um dos C.A."
-        })
+            description: "Se o erro persistir, comunique a um dos C.A."
+        });
+    } finally {
+        setIsSubmitting(false);
     }
+};
 
-    if(isSwitchOn){ 
-        reset({
-            name: "",
-            email: "",
-            phone: "",
-            title: "",
-            description: "",
-        });
-    }else{
-        reset({
-            name: undefined,
-            email: undefined,
-            phone: undefined,
-            title: "",
-            description: "",
-        });
-    }
+// Função auxiliar para converter arquivo em base64
+const fileToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = (error) => reject(error);
+    });
 };
 
 return (

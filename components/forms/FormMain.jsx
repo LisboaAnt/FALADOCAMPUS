@@ -18,8 +18,9 @@ const Form = () => {
         }`}
         >
             <div className="flex gap-x-2 align-middle  justify-center flex-wrap ">
-                    <div className="flex gap-x-1 sm:gap-x-2 sm:px-0  mt-2 w-full justify-between">
-                        
+                    <h1 className='text-3xl sm:text-[41px] p-4 font-bold dark:text-gray-100 text-gray-900'>Envie sua mensagem</h1>
+                    <h5 className='w-full pl-3 pt-4 text-lg sm:pl-20 font-semibold '>Tipo da mensagem</h5>
+                    <div className="flex gap-x-1 sm:gap-x-2 sm:px-0  mt-2 w-full justify-between pb-4">
                         <div 
                             className="flex items-center gap-x-2 m-0 sm:py-2 pl-3 sm:pl-20 cursor-pointer rounded-md transition-all duration-300 ease-in-out"
                             onClick={() => setTypeForm("Suggestion")}
@@ -65,7 +66,7 @@ const Form = () => {
                     </div>
                     
                     <div
-                    className="m-0  sm:w-full w-full flex flex-col pb-5 pt-4 px-3 sm:p-20 sm:pt-1 w-full"
+                    className="m-0  sm:w-full w-full flex flex-col pb-5 pt-4 px-3 sm:p-20 sm:pt-1"
                         >
                             {typeForm === "Suggestion" && <FormSugeestion />}
                             {typeForm === "Denunciation" && <FormDenunciation />}

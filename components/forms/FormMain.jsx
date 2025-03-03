@@ -11,11 +11,7 @@ const Form = () => {
 
     return (
         <div 
-        className={`flex flex-col items-center border-3 rounded-lg w-full min-w-[340px] backdrop-blur-[3px] ${
-            typeForm === "Suggestion" ? "border-2 transition-all rounded-lg dark:border-green-500/20 shadow-lg dark:shadow-green-500/30" : ""+
-            typeForm === "Denunciation" ? "border-2 transition-all rounded-lg dark:border-red-500/20 shadow-lg dark:shadow-red-500/30" : ""+
-            typeForm === "Reclamation" ? "border-2 transition-all rounded-lg dark:border-yellow-500/20 shadow-lg dark:shadow-yellow-500/30" : ""
-        }`}
+        className={`flex flex-col items-center w-full min-w-[340px] backdrop-blur-[3px] border-2 transition-all rounded-lg dark:border-gray-100/20 shadow-lg dark:shadow-gray-500/30`}
         >
             <div className="flex gap-x-2 align-middle  justify-center flex-wrap ">
                     <h1 className='text-3xl sm:text-[41px] p-4 font-bold dark:text-gray-100 text-gray-900'>Envie sua mensagem</h1>

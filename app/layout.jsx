@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt" suppressHydrationWarning>
       <body className={SenFont.className}>
-        <ThemeProvider attribute='class' defaultTheme='light'>
+        <ThemeProvider attribute="class" defaultTheme="system">
             {children}    
           <Toaster/>
         </ThemeProvider>

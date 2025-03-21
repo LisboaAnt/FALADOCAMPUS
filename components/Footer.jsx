@@ -3,7 +3,7 @@ import './Footer.css'
 import React, { useState } from 'react';
 
 const Footer = () => {
-    const text = "Desenvolvido_por_@AntonioLisboa";
+    const text = "@AntonioLisboa";
     const [animatedLetters, setAnimatedLetters] = useState([]);
 
     const handleMouseEnter = (index) => {

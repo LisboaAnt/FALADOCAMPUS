@@ -1,1 +1,0 @@
-.hover-letter{display:inline-block;transition:transform .3s ease-in-out}@keyframes lift{0%{transform:translateY(0)}50%{transform:translateY(-10px)}to{transform:translateY(0)}}.animate-lift{animation:lift .5s ease-in-out;animation-fill-mode:forwards}

@@ -17,24 +17,36 @@ const Footer = () => {
     };
 
     return (
-        <Link href="https://www.antoniolisboa.site" className="flex justify-center text-black dark:text-white py-6" target="_blank" rel="noopener noreferrer" >
-            <div className="flex flex-col items-baseline text-center px-4">
-                <h5 className="text-base font-medium">
-                    {text.split('').map((char, index) => (
-                        <span
-                            key={index}
-                            className={`hover-letter ${
-                                animatedLetters.includes(index) ? 'animate-lift' : ''
-                            }`}
-                            onMouseEnter={() => handleMouseEnter(index)}
-                        >
-                            {char}
-                        </span>
-                    ))}
-                </h5>
-            </div>
-        </Link>
+        <div className="pt-8 pb-6">
+        <div className="flex flex-col items-center text-center px-4 space-y-1 text-gray-600">
+            <p className="text-lg font-semibold">Centro Acadêmico Ada Lovelace</p>
+            <p className="text-sm">Curso de Ciência da Computação – UFC Campus Russas</p>
+            <p className="text-sm">© 2025 Todos os direitos reservados</p>
+            <p className="text-sm">
+            Contato: <a href="mailto:um.caal2.0@gmail.com" className="text-blue-600 hover:underline">um.caal2.0@gmail.com</a> | 
+            Instagram: <a href="https://www.instagram.com/caalufc" target="_blank" className="text-blue-600 hover:underline">@caalufc</a>
+            </p>
+        </div>
+    
+        <div className="flex flex-col items-center text-center px-4 mt-4">
+            <h5 className="text-sm font-medium text-gray-600">
+            {text.split('').map((char, index) => (
+                <Link
+                href="https://www.antoniolisboa.site"
+                key={index}
+                className={`hover-letter ${
+                    animatedLetters.includes(index) ? 'animate-lift' : ''
+                }`}
+                onMouseEnter={() => handleMouseEnter(index)}
+                >
+                {char}
+                </Link>
+            ))}
+            </h5>
+        </div>
+        </div>
     );
+    
 };
 
 export default Footer;

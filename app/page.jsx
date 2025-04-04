@@ -13,7 +13,7 @@ export default function Home() {
 
       <div className="text-center sm:max-w-4xl pt-10 sm:pt-18 pb-20">
         <p className="text-[65px] sm:text-[115px] sm:leading-[130px] font-bold dark:text-gray-100 text-gray-800">Um espaço para ouvir você!</p>
-        <p className="text-[20px] sm:text-[21px] sm:leading-[25px] mx-10 sm:mx-10 md:mx-auto  dark:text-gray-100 text-gray-800 pt-3 sm:pt-7">Envie sugestões, registre suas reclamações ou faça denúncias <br/> de forma fácil e confidencial.</p>
+        <p className="text-[20px] sm:text-[21px] sm:leading-[25px] mx-10 sm:mx-10 md:mx-auto  dark:text-gray-100 text-gray-800 pt-3 sm:pt-7">Envie sugestões e registre suas reclamações<br/> de forma fácil e confidencial.</p>
       </div>
       
 

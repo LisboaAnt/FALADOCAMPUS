@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { Toaster } from "@/components/ui/toaster";
 
+import { Analytics } from "@vercel/analytics/react"
 //Themeprovider
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
             {children}    
           <Toaster/>
         </ThemeProvider>
+        <Analytics/>
       </body>
     </html>
   );

@@ -35,7 +35,7 @@ const Form = () => {
                         >
                             <div className={`w-[15px] h-[15px] rounded-full transition-all duration-300 ease-in-out ${typeForm === "Reclamation" ? "bg-[#4B2DBB]/80 border-none" : "border dark:border-gray-600/10 dark:bg-gray-700 border-gray-400/5 bg-gray-700/20"}`}></div>
                             <p className="text-sm sm:text-base flex items-center gap-x-1 truncate">
-                                Reclamação
+                                Reclamações
                                 <span className="hidden md:block">
                                     <Frown size={20} />
                                 </span>

@@ -68,7 +68,7 @@ const FormReclamation = () => {
             setFileError("Você pode enviar no máximo 20 arquivos.");
             return;
         }
-        data.type = "😤Reclamação😤"
+        data.type = "   "
         data.to_email = process.env.NEXT_PUBLIC_EMAILS;
     
         // Converter arquivos para formato adequado

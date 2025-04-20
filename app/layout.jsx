@@ -14,7 +14,7 @@ const SenFont = Sen({
   display: "swap"
 })
 export const metadata = {
-  title: "Fala do Campus",
+  title: "Fala Dev",
   description: "Site desenvolvido pelo Centro Acadêmico de Ciência da Computação para que você possa enviar sugestões ou reclamações.",
 };
 

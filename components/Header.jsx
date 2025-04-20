@@ -18,7 +18,7 @@ const Header = () => {
                     alt="Logo"
                 />
                 <h5 className='pl-4 sm:text-2xl leading-[50px] text-2xl font-semibold'>
-                    FALA DO CAMPUS
+                    FALA DEV
                 </h5>
             </div>
 

@@ -31,16 +31,19 @@ const Footer = () => {
         <div className="flex flex-col items-center text-center px-4 mt-4">
             <h5 className="text-sm font-medium text-gray-600">
             {text.split('').map((char, index) => (
-                <Link
+                <a
                 href="https://www.antoniolisboa.site"
                 key={index}
                 className={`hover-letter ${
                     animatedLetters.includes(index) ? 'animate-lift' : ''
                 }`}
                 onMouseEnter={() => handleMouseEnter(index)}
+                target="_blank"
+                rel="noopener noreferrer"
                 >
                 {char}
-                </Link>
+                </a>
+
             ))}
             </h5>
         </div>

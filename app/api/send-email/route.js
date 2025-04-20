@@ -26,11 +26,11 @@ export async function POST(request) {
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: formData.to_email,
-            subject: `C.A. Fala do Campus: ${formData.type}`,
+            subject: `C.A. Fala Dev: ${formData.type}`,
             html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
                 <h2 style="color: #4B2DBB; text-align: center; border-bottom: 2px solid #4B2DBB; padding-bottom: 10px;">
-                    📬 Nova Mensagem - Fala do Campus ; ${formData.type} 
+                    📬 Nova Mensagem - Fala Dev ; ${formData.type} 
                 </h2>
         
                 <div style="background-color: #f8f9fa; padding: 15px; border-radius: 6px; margin: 15px 0;">
@@ -55,7 +55,7 @@ export async function POST(request) {
                 </div>
         
                 <footer style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0; color: #666;">
-                    <p style="font-size: 12px;">Esta é uma mensagem automática do sistema Fala do Campus.</p>
+                    <p style="font-size: 12px;">Esta é uma mensagem automática do sistema Fala Dev.</p>
                     <p style="font-size: 12px;">Por favor, não responda diretamente a este email.</p>
                 </footer>
             </div>
